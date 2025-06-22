@@ -9,8 +9,10 @@ function createWindow() {
     width: 900,
     height: 670,
     show: false,
+    minWidth: 900,      
+    minHeight: 670,
     title: 'CoconutDB Compass',
-    icon: icon, 
+    icon: icon,
     autoHideMenuBar: true,
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
