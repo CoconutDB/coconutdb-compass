@@ -24,7 +24,7 @@ const HomePage = () => {
                 {/* ACTION BUTTONS */}
                 <div className="mt-8 space-x-4">
                     <Link
-                        to="/about"
+                        to="/LearnMore"
                         className="inline-flex items-center px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-md transition"
                     >
                         <Info className="w-4 h-4 mr-2" /> Learn More

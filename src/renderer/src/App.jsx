@@ -1,20 +1,30 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom"
 import HomePage from "./pages/HomePage"
 import Nav from "./components/Nav/Nav"
-import About from "./pages/About"
+import { useEffect } from "react"
+import LearnMore from "./pages/LearnMore"
 
-function App() {
+const AppRoutes = () => {
+  const location = useLocation()
 
   return (
     <>
-      <BrowserRouter>
-        {/* <Nav /> */}
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </BrowserRouter>
+      {/* Show Nav only if not on "/" */}
+      {location.pathname !== "/" && <Nav />}
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/LearnMore" element={<LearnMore /> } />
+      </Routes>
     </>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   )
 }
 
