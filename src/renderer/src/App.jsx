@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Nav />
+        {/* <Nav /> */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
