@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { DatabaseZap, BookOpenCheck, Info } from 'lucide-react';
 import axios from 'axios';
 
 const HomePage = () => {
+    const navigate = useNavigate()
     const [backendAvailable, setBackendAvailable] = useState(false);
     const [backendMessage, setBackendMessage] = useState('');
 
@@ -25,11 +26,11 @@ const HomePage = () => {
 
         const interval = setInterval(() => {
             if (!backendAvailable) {
-                checkBackend(); 
+                checkBackend();
             }
         }, 3000);
 
-        return () => clearInterval(interval); 
+        return () => clearInterval(interval);
     }, [backendAvailable]);
 
 
@@ -63,6 +64,7 @@ const HomePage = () => {
 
                     <button
                         disabled={!backendAvailable}
+                        onClick={() => backendAvailable && navigate('/CompassEnv')}
                         className={`inline-flex items-center px-5 py-2.5 rounded-full shadow-md transition ${backendAvailable
                             ? 'bg-green-600 hover:bg-green-700 text-white'
                             : 'bg-gray-300 text-gray-500 border border-gray-400 cursor-not-allowed'
